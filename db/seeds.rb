@@ -1,23 +1,74 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
 Airport.destroy_all
 
-Airport.create!(name: "New York City")
-Airport.create!(name: "Orlando")
-Airport.create!(name: "California")
-Airport.create!(name: "Miami")
-Airport.create!(name: "Los Angeles")
-Airport.create!(name: "Houston")
-Airport.create!(name: "Ohio")
-Airport.create!(name: "Utah")
-Airport.create!(name: "Mississippi")
-Airport.create!(name: "Yellowstone")
+# Create airports
+nyc = Airport.create!(name: "New York City")
+orl = Airport.create!(name: "Orlando")
+cal = Airport.create!(name: "California")
+mia = Airport.create!(name: "Miami")
+la = Airport.create!(name: "Los Angeles")
+hou = Airport.create!(name: "Houston")
+oh = Airport.create!(name: "Ohio")
+ut = Airport.create!(name: "Utah")
+miss = Airport.create!(name: "Mississippi")
+yel = Airport.create!(name: "Yellowstone")
 
-puts "#{Airport.count} airports addded!"
+puts "#{Airport.count} airports added!"
+
+# Create flights (with dates instead of date_times)
+Flight.create!(
+  date: Date.new(2025, 1, 5),
+  flight_duration: 180,
+  departure_airport_id: nyc.id,
+  arrival_airport_id: orl.id
+)
+
+Flight.create!(
+  date: Date.new(2025, 1, 6),
+  flight_duration: 240,
+  departure_airport_id: orl.id,
+  arrival_airport_id: cal.id
+)
+
+Flight.create!(
+  date: Date.new(2025, 1, 7),
+  flight_duration: 150,
+  departure_airport_id: cal.id,
+  arrival_airport_id: mia.id
+)
+
+Flight.create!(
+  date: Date.new(2025, 1, 8),
+  flight_duration: 300,
+  departure_airport_id: la.id,
+  arrival_airport_id: hou.id
+)
+
+Flight.create!(
+  date: Date.new(2025, 1, 9),
+  flight_duration: 200,
+  departure_airport_id: hou.id,
+  arrival_airport_id: oh.id
+)
+
+Flight.create!(
+  date: Date.new(2025, 1, 10),
+  flight_duration: 210,
+  departure_airport_id: oh.id,
+  arrival_airport_id: ut.id
+)
+
+Flight.create!(
+  date: Date.new(2025, 1, 11),
+  flight_duration: 220,
+  departure_airport_id: ut.id,
+  arrival_airport_id: miss.id
+)
+
+Flight.create!(
+  date: Date.new(2025, 1, 12),
+  flight_duration: 180,
+  departure_airport_id: miss.id,
+  arrival_airport_id: yel.id
+)
+
+puts "#{Flight.count} flights added!"

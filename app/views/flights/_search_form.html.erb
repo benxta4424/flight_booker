@@ -1,0 +1,25 @@
+<%=form_with url: flights_path,action: :get do |form|%>
+    <div class="search_box">
+        <div class="original_location">
+            <%=form.label :current_location%>  
+            <%=form.collection_select :name,Airport.all,:id,:name%>              
+        </div>
+
+        <div class="desired_location">
+            <%=form.label :desired_location%>
+            <%=form.collection_select :name,Airport.all,:id,:name%>
+        </div>
+
+        <div class="flight_dates">
+            <%=form.label :date%>
+            <%=form.collection_select :date,Flight.all,:id,:date%>
+        </div>
+
+        <div class="nr_passagers">
+            <%=form.label :passagers%>
+            <%=form.number_field max:4,min:1%>
+        </div>
+
+        <%=form.submit "Search Flights"%>
+    </div>
+<%end%>
