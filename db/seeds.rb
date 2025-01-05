@@ -7,3 +7,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Airport.destroy_all
+
+Airport.create!(name: "New York City")
+Airport.create!(name: "Orlando")
+Airport.create!(name: "California")
+Airport.create!(name: "Miami")
+Airport.create!(name: "Los Angeles")
+Airport.create!(name: "Houston")
+Airport.create!(name: "Ohio")
+Airport.create!(name: "Utah")
+Airport.create!(name: "Mississippi")
+Airport.create!(name: "Yellowstone")
+
+puts "#{Airport.count} airports addded!"
