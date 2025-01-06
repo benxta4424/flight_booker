@@ -1,0 +1,11 @@
+<div class="results_box">
+  <%unless @starting_location==@ending_location %>
+    <%=@starting_location%>
+    <%="->"%>  
+    <%=@ending_location%>
+    <%="->"%>
+    <%=@date%>
+  <%else%>
+    <%= flash.now[:alert]="You can't fly to the same city!" %>
+  <%end %>
+</div>
