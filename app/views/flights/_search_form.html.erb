@@ -2,17 +2,17 @@
     <div class="search_box">
         <div class="original_location">
             <%=form.label :current_location%>  
-            <%=form.collection_select :current_location,Airport.all,:id,:name%>              
+            <%=form.collection_select :current_location,@airports,:id,:name%>              
         </div>
 
         <div class="desired_location">
             <%=form.label :desired_location%>
-            <%=form.collection_select :desired_location,Airport.all,:id,:name%>
+            <%=form.collection_select :desired_location,@airports.all,:id,:name%>
         </div>
 
         <div class="flight_dates">
-            <%=form.label :date%>
-            <%=form.collection_select :date,Flight.all,:id,:date%>
+            <%=form.label :flight_date%>
+            <%=form.collection_select :flight_date,@flights,:id,:date%>
         </div>
 
         <div class="nr_passagers">

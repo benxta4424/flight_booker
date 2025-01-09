@@ -23,6 +23,13 @@ Flight.create!(
 )
 
 Flight.create!(
+  date: Date.new(2025, 1, 5),
+  flight_duration: 150,
+  departure_airport_id: nyc.id,
+  arrival_airport_id: orl.id
+)
+
+Flight.create!(
   date: Date.new(2025, 1, 6),
   flight_duration: 240,
   departure_airport_id: orl.id,

@@ -1,11 +1,17 @@
 <div class="results_box">
-  <%unless @starting_location==@ending_location %>
-    <%=@starting_location%>
-    <%="->"%>  
-    <%=@ending_location%>
-    <%="->"%>
-    <%=@date%>
-  <%else%>
-    <%= flash.now[:alert]="You can't fly to the same city!" %>
-  <%end %>
+    <% unless @starting_location==@ending_location %>
+        <% @found_flights.each do |flightss| %>
+          <div class="each_flight">
+            <div class="departure_airport_name"><%= flightss.departure_airport.name %></div>
+            <div class="arrival_airport_name"><%= flightss.arrival_airport.name %></div>
+            <div class="flight_date"><%= flightss.date %></div>
+            <div class="flight_passagers"><%= flightss.flight_duration %></div>
+          </div>
+          
+        <% end %>
+
+    <% else %>
+      <%= "You can't fly to the same city!" %>
+    <% end %>
 </div>
+
