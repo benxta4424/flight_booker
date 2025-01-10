@@ -1,9 +1,10 @@
 <% stylesheet_link_tag "results_box" %>
-
+<%= form_with url: "bookings/new/", method: "get", local: true do |f| %>
   <div class="results_box">
     <% if @found_flights.present? %>
       <% @found_flights.each do |flightss| %>
         <div class="each_flight">
+          <div class="radio_button"><%= f.radio_button :radio_btn,flightss.id %></div>
           <div class="departure_airport_name"><%= flightss.departure_airport.name %></div>
           <div class="arrival_airport_name"><%= flightss.arrival_airport.name %></div>
           <div class="flight_date"><%= flightss.date %></div>
@@ -17,5 +18,8 @@
           <div class="no_flight_warning"><%= flash[:error] %></div>
         <% end %>
     <% end %>
+
+    <%= f.submit "Book Flight" %>
   </div>
 
+<% end %>

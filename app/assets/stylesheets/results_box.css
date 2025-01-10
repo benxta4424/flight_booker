@@ -3,7 +3,6 @@
     flex-wrap: wrap;
     max-width: 600px;
     min-height: 30px;
-    border: 2px solid green;
 }
 .each_flight {
     display: flex;
