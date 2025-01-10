@@ -12,7 +12,7 @@
 
         <div class="flight_dates">
             <%=form.label :flight_date%>
-            <%=form.collection_select :flight_date,@flights,:id,:date%>
+            <%=form.collection_select :flight_date,@flights,:date,:date%>
         </div>
 
         <div class="nr_passagers">
