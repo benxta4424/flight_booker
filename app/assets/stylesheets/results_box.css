@@ -1,0 +1,14 @@
+.results_box {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 600px;
+    min-height: 30px;
+    border: 2px solid green;
+}
+.each_flight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 1px solid red;
+}
