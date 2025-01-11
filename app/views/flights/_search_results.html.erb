@@ -1,4 +1,5 @@
 <% stylesheet_link_tag "results_box" %>
+<div class="content">
 <%= form_with url: "bookings/new/", method: "get", local: true do |f| %>
   <div class="results_box">
     <% if @found_flights.present? %>
@@ -10,7 +11,9 @@
           <div class="flight_date"><%= flightss.date %></div>
           <div class="flight_passagers"><%= flightss.flight_duration %></div>
         </div>
-      <% end %>
+      <% end %> 
+    <div class="book_flight"><%= f.submit "Book Flight" %></div>
+      
     <% else %>
       <% if flash[:same_location] %>
           <div class="same_location_warning"><%= flash[:same_location] %></div>
@@ -18,8 +21,6 @@
           <div class="no_flight_warning"><%= flash[:error] %></div>
         <% end %>
     <% end %>
-
-    <%= f.submit "Book Flight" %>
   </div>
-
 <% end %>
+</div>

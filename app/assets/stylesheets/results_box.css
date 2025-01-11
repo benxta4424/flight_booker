@@ -1,13 +1,31 @@
+.content {
+    display: flex;
+    justify-content: center;
+}
 .results_box {
     display: flex;
     flex-wrap: wrap;
     max-width: 600px;
     min-height: 30px;
+    border: 1px solid #c084fc;
+    box-shadow: 10px 10px 10px grey;
+    border-radius: 10px;
+    background-color: #f5f3ff;
+    align-content: center;
 }
 .each_flight {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    border: 1px solid red;
+    border-bottom: 0.5px solid #881337;
+    padding: 10px;
+}
+.book_flight {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 10px;
 }
