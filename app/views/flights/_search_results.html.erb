@@ -1,6 +1,6 @@
 <% stylesheet_link_tag "results_box" %>
 <div class="content">
-<%= form_with url: "bookings/new/", method: "get", local: true do |f| %>
+<%= form_with url: bookings_path, method: :post, local: true do |f| %>
   <div class="results_box">
     <% if @found_flights.present? %>
       <% @found_flights.each do |flightss| %>

@@ -4,21 +4,15 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking=Booking.new(booking_params)
+    @booking=Booking.new(flight_id: params[:radio_btn], passager_id: params[:passager_id])
   end
 
   def create
-    @booking=Booking.new(booking_params)
+    @booking=Booking.new(flight_id: params[:radio_btn], passager_id: params[:passager_id])
     if @booking.save
       redirect_to bookings_path
     else
-      render :new
+      redirect_to new_booking_path
     end
-  end
-
-  private
-
-  def booking_params
-    params.require(:bookings).permit(:flight_id, :passager_id)
   end
 end
