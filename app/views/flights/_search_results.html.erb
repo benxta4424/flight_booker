@@ -10,6 +10,7 @@
           <div class="arrival_airport_name"><%= flightss.arrival_airport.name %></div>
           <div class="flight_date"><%= flightss.date %></div>
           <div class="flight_passagers"><%= flightss.flight_duration %></div>
+          <%= f.hidden_field :flight_id, value: flightss.id %>
         </div>
       <% end %> 
     <div class="book_flight"><%= f.submit "Book Flight" %></div>

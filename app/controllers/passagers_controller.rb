@@ -4,8 +4,11 @@ class PassagersController < ApplicationController
   end
 
   def new
-    @passager=Passager.new(passager_params)
+    Rails.logger.debug "Params received in new: #{params.inspect}"
+    @flight = Flight.find_by(id: params[:flight_id])
+    @passager = Passager.new
   end
+
 
   def create
     @passager=Passager.new(passager_params)
@@ -21,6 +24,6 @@ class PassagersController < ApplicationController
   private
 
   def passager_params
-    params.require(:passagers).permit(:name, :email)
+    params.require(:passager).permit(:name, :email)
   end
 end
