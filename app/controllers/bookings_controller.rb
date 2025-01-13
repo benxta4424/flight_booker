@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(flight_id: params[:radio_btn], passager_id: params[:passager_id])
     if @booking.save
-      render :new
+      render :index
     else
       redirect_to new_passager_path(flight_id: @booking.flight_id)
     end
