@@ -1,1 +1,19 @@
-<%= %>
+<%= render "flight_details" , flight:@flight %>
+<%= form_with model: @passager, url: bookings_path, method: :post, data: { turbo: false } do |f| %>
+  <%= f.hidden_field :flight_id, value: @flight.id %> <!-- This ensures the flight_id is sent with the form -->
+
+  <div class="username">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="email">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="submit_passager">
+    <%= f.submit "Create Booking" %>
+  </div>
+
+<% end %>

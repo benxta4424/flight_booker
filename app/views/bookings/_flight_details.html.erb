@@ -1,0 +1,12 @@
+<div class="flight_details_box">
+    <% if @flight.present? %>
+        <div class="greeting_message">
+            <h1>Welcome! Enter your name and email in order to book the following flight:</h1>
+        </div>
+
+        <div class="departure_airport">Departure Airport: <%= @flight.departure_airport.name %></div>
+        <div class="arrival_airport">Arrival Airport: <%= @flight.arrival_airport.name %></div>
+        <div class="flight_date">Flight Date: <%= @flight.date %></div>
+        <div class="flight_duration">Flight Duration: <%= @flight.flight_duration %> minutes</div>
+    <% end %>
+</div>
