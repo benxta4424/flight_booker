@@ -16,8 +16,9 @@ class BookingsController < ApplicationController
       redirect_to flights_path and return
     end
 
-
-    @passager=Passager.new(name: params[:passager][:name], email: params[:passager][:email])
+    @passager=Passager.find_or_initialize_by(email: params[:passager][:email]) do |passager|
+      passager.name=params[:passager][:name]
+    end
 
     if @passager.save
       flash[:saved_passager]="Passager created succesfully!"

@@ -1,6 +1,16 @@
+<div class="container">
+
+<%# passager details %>
+<div class="passager_details">
 <div class="passager_name">Name: <%= @booking.passager.name %></div>
-<div class="passager_email">Email: <%= @booking.passager.email %></div>
+<div class="passager_email">Email: <%= @booking.passager.email %></div></div>
+
+
+<%# flight details %>
+<div class="flight_details">
 <div class="departure_airport">Departure Airport: <%= @booking.flight.departure_airport.name %></div>
 <div class="arrival_airport">Arrival Airport: <%= @booking.flight.arrival_airport.name %></div>
 <div class="flight_date">Flight Date: <%= @booking.flight.date %></div>
-<div class="flight_duration">Flight Duration: <%= @booking.flight.flight_duration %> minutes</div>
+<div class="flight_duration">Flight Duration: <%= @booking.flight.flight_duration %> minutes</div></div>
+
+</div>
