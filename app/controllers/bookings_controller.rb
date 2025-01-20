@@ -5,32 +5,35 @@ class BookingsController < ApplicationController
 
   def new
     @flight=Flight.find_by(id: params[:flight_id])
-    @booking=Booking.new
+    @passager=Passager.new
   end
 
   def create
-    @flight=Flight.find_by(id: params[:flight_id])
+    @flight=Flight.find_by(id: params[:passager][:flight_id])
 
-    if params[:name].present? && params[:email].present?
-      # creating the passager
-      flash.now[:success_passager]="You've succesfully created the Passager!"
-      @passager=Passager.create(name: params[:name], email: params[:email])
-    else
-      render :new
-      flash.now[:failure_passager]="You've failed to create the Passager!"
+    if @flight.nil?
+      flash[:no_flight]="The flight has not been found!"
+      redirect_to flights_path and return
     end
 
-    if @passager.present? && @flight.present?
-      @booking = Booking.new(flight_id: @flight.id, passager_id: @passager.id)
-    end
 
-    if @booking.present?
+    @passager=Passager.new(name: params[:passager][:name], email: params[:passager][:email])
+
+    if @passager.save
+      flash[:saved_passager]="Passager created succesfully!"
+      @booking=Booking.new(flight_id: @flight.id, passager_id: @passager.id)
+
       if @booking.save
-        flash[:success]="Booking succesfully created!"
+        flash[:saved_booking]="Booking succesfully saved!"
         redirect_to booking_path(@booking.id)
       else
-        flash[:booking_error]="Unsuccessful booking! Try again!"
+        flash[:unsaved_booking]="Please add a Booking!"
+        render :new
       end
+
+    else
+      flash[:create_passager]="Please create a passager!"
+      render :new
     end
   end
 
