@@ -6,12 +6,14 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 600px;
+    min-width: 600px;
     min-height: 30px;
     border: 1px solid #c084fc;
     box-shadow: 10px 10px 10px grey;
     border-radius: 10px;
     background-color: #f5f3ff;
     align-content: center;
+    justify-content: center;
 }
 .each_flight {
     display: flex;
@@ -23,9 +25,13 @@
 }
 .book_flight {
     display: flex;
-    flex: 1;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
     padding: 10px;
+}
+.search_content {
+    display: flex;
+    padding: 30px;
+    max-width: 500px;
 }

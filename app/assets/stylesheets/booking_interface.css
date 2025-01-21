@@ -22,7 +22,7 @@
     font-size: max(20%,2vw);
 
     box-shadow: 2px 10px 2px #a3a3a3;
-    background-color: ##f4f4f5;
+    background-color: #f4f4f5;
     border-radius: 20px;
 }
 .flight_details {
@@ -48,4 +48,5 @@
 .edit_button {
     text-decoration: none;
     font-size: 20px;
+    color: #0369a1;
 }

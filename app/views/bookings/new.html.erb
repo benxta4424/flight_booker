@@ -1,17 +1,19 @@
-<%= render "flight_details" , flight:@flight %>
-<%= form_with model: @passager, url: bookings_path, method: :post, data: { turbo: false } do |f| %>
-  <!-- Hidden field to include the flight ID -->
-  <%= f.hidden_field :flight_id, value: @flight.id %>
+<div class="container">
+  <%= render "flight_details" , flight:@flight %>
+  <%= form_with model: @passager, url: bookings_path, method: :post, data: { turbo: false } do |f| %>
+    <!-- Hidden field to include the flight ID -->
+    <%= f.hidden_field :flight_id, value: @flight.id %>
 
-  <div>
-    <%= f.label :name, "Passenger Name" %>
-    <%= f.text_field :name %>
-  </div>
+    <div>
+      <%= f.label :name, "Passenger Name" %>
+      <%= f.text_field :name %>
+    </div>
 
-  <div>
-    <%= f.label :email, "Passenger Email" %>
-    <%= f.email_field :email %>
-  </div>
+    <div>
+      <%= f.label :email, "Passenger Email" %>
+      <%= f.email_field :email %>
+    </div>
 
-  <%= f.submit "Create Booking" %>
-<% end %>
+    <%= f.submit "Create Booking" %>
+  <% end %>
+</div>
