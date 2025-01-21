@@ -1,16 +1,25 @@
+<%= stylesheet_link_tag "bookings_interface" %>
 <div class="container">
 
-<%# passager details %>
-<div class="passager_details">
-<div class="passager_name">Name: <%= @booking.passager.name %></div>
-<div class="passager_email">Email: <%= @booking.passager.email %></div></div>
+    <%# passager details %>
+    <div class="passager_details">
+        <div class="passager_name">Name: <%= @booking.passager.name %></div>
+        <div class="passager_email">Email: <%= @booking.passager.email %></div>
+    </div>
+
+    <div class="flight_title">Booked Flight:</div>
+    
+    <%# flight details %>
+    <div class="flight_details">
+        
+        <div class="departure_airport">Departure Airport: <%= @booking.flight.departure_airport.name %></div>
+        <div class="arrival_airport">Arrival Airport: <%= @booking.flight.arrival_airport.name %></div>
+        <div class="flight_date">Flight Date: <%= @booking.flight.date %></div>
+        <div class="flight_duration">Flight Duration: <%= @booking.flight.flight_duration %> minutes</div>
+    </div>
 
 
-<%# flight details %>
-<div class="flight_details">
-<div class="departure_airport">Departure Airport: <%= @booking.flight.departure_airport.name %></div>
-<div class="arrival_airport">Arrival Airport: <%= @booking.flight.arrival_airport.name %></div>
-<div class="flight_date">Flight Date: <%= @booking.flight.date %></div>
-<div class="flight_duration">Flight Duration: <%= @booking.flight.flight_duration %> minutes</div></div>
-
+    <div class="go_back">
+        <button><%= link_to "Back to Flights",  flights_path, class:"edit_button" %></button>
+    </div>
 </div>

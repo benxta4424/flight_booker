@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
       redirect_to flights_path and return
     end
 
+    # if the email exists in the database we cannot create another booking for the same email
     @passager=Passager.find_or_initialize_by(email: params[:passager][:email]) do |passager|
       passager.name=params[:passager][:name]
     end
