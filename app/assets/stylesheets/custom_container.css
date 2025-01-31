@@ -1,0 +1,11 @@
+.nice_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    height: 700px;
+    gap: 200px;
+
+
+    box-shadow: 2px 20px 20px 2px rebeccapurple;
+}
