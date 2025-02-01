@@ -81,4 +81,5 @@ Rails.application.configure do
   # letter_opener gem
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
+  config.active_job.queue_adapter = :async
 end

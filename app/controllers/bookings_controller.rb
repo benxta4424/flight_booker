@@ -23,6 +23,7 @@ class BookingsController < ApplicationController
 
     if @passager.save
       flash[:saved_passager]="Passager created succesfully!"
+      PassagerMailer.with(passager: @passager).welcome_mail.deliver_now
       @booking=Booking.new(flight_id: @flight.id, passager_id: @passager.id)
 
       if @booking.save

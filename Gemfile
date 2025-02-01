@@ -62,4 +62,4 @@ group :development do
   gem "rails_live_reload"
 end
 
-gem "letter_opener"
+gem "letter_opener", group: :development
